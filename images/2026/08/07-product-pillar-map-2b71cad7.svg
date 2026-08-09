@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<style>text{font-family:Segoe UI,Arial,sans-serif}.title{font-size:34px;font-weight:700}.h{font-size:24px;font-weight:700}.t{font-size:19px}.small{font-size:16px}.code{font-family:Cascadia Mono,Consolas,monospace;font-size:17px}.lane{fill:#f6f8fb;stroke:#c7ccd1;stroke-width:2}.good{fill:#e7f4ff;stroke:#5b9bd5}.warn{fill:#fff5dc;stroke:#d6a700}.arrow{stroke:#444;stroke-width:3;marker-end:url(#a)}</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#444"/></marker></defs>
+<rect width="1400" height="900" fill="white"/>
+<text x="50" y="60" class="title">按官方产品结构重排：Unity AI Gateway 四个治理域</text>
+<rect x="60" y="110" width="300" height="610" rx="18" class="lane"/>
+<rect x="390" y="110" width="300" height="610" rx="18" class="lane"/>
+<rect x="720" y="110" width="300" height="610" rx="18" class="lane"/>
+<rect x="1050" y="110" width="300" height="610" rx="18" class="lane"/>
+<text x="90" y="160" class="h">访问控制</text>
+<text x="90" y="205" class="t">谁能用哪个 AI 服务？</text>
+<text x="90" y="255" class="small">Model services</text>
+<text x="90" y="285" class="small">External providers</text>
+<text x="90" y="315" class="small">MCP tools / functions</text>
+<text x="90" y="365" class="small">位置：Databricks Catalog / AI Gateway</text>
+<text x="90" y="415" class="small">证据：UC catalog + system.ai endpoints</text>
+<text x="420" y="160" class="h">流量管理</text>
+<text x="420" y="205" class="t">如何路由、限流、控预算？</text>
+<text x="420" y="255" class="small">Rate limits</text>
+<text x="420" y="285" class="small">Traffic splitting</text>
+<text x="420" y="315" class="small">Fallback</text>
+<text x="420" y="345" class="small">Budgets</text>
+<text x="420" y="395" class="small">位置：AI Gateway service 配置</text>
+<text x="420" y="445" class="small">证据：配置截图/API + 429/路由结果</text>
+<text x="750" y="160" class="h">防护策略</text>
+<text x="750" y="205" class="t">每次请求/响应能否放行？</text>
+<text x="750" y="255" class="small">Built-in guardrails</text>
+<text x="750" y="285" class="small">Custom SQL UDF policies</text>
+<text x="750" y="315" class="small">ALLOW / DENY / ASK</text>
+<text x="750" y="365" class="small">位置：Service Policies</text>
+<text x="750" y="415" class="small">证据：策略附件 + 被拦截调用</text>
+<text x="1080" y="160" class="h">监控风险和成本</text>
+<text x="1080" y="205" class="t">谁用了多少，花了多少？</text>
+<text x="1080" y="255" class="small">system.ai_gateway.usage</text>
+<text x="1080" y="285" class="small">system.billing.usage</text>
+<text x="1080" y="315" class="small">external_model_spend</text>
+<text x="1080" y="345" class="small">Inference tables</text>
+<text x="1080" y="395" class="small">位置：SQL Editor / system tables</text>
+<text x="1080" y="445" class="small">证据：SQL 查询结果</text>
+<line x1="360" y1="735" x2="390" y2="735" class="arrow"/><line x1="690" y1="735" x2="720" y2="735" class="arrow"/><line x1="1020" y1="735" x2="1050" y2="735" class="arrow"/>
+<text x="90" y="795" class="t">文档重写原则：每个治理域都必须回答 pain point / 是什么 / 在哪里 / 怎么 demo / 什么证据证明 / 限制是什么。</text>
+<text x="90" y="835" class="t">凡是写“页面上能看到”的内容，必须有真实截图；否则改成 API/SQL 证据或明确写“本环境未能截图”。</text>
+</svg>

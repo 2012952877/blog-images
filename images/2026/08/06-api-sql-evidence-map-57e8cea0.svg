@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+<style>text{font-family:Segoe UI,Arial,sans-serif}.title{font-size:34px;font-weight:700}.h{font-size:24px;font-weight:700}.t{font-size:20px}.code{font-family:Cascadia Mono,Consolas,monospace;font-size:18px}.box{fill:#f7f8fa;stroke:#ccd0d5;stroke-width:2}.ok{fill:#e8f5e9;stroke:#5aa469}.warn{fill:#fff8e1;stroke:#d6a700}</style>
+<rect width="1400" height="760" fill="white"/>
+<text x="50" y="60" class="title">Unity AI Gateway 实测证据：不是 Azure Portal 菜单，而是 Workspace 内部治理 + System Tables</text>
+<rect x="50" y="105" width="400" height="190" rx="16" class="box"/>
+<text x="80" y="150" class="h">1. Unity Catalog</text>
+<text x="80" y="190" class="t">Catalogs 可见：</text>
+<text x="80" y="225" class="code">system, main, dbx_ai_poc_uat_wus3</text>
+<text x="80" y="260" class="t">说明：AI Gateway 构建在 UC 治理面之上</text>
+<rect x="500" y="105" width="400" height="190" rx="16" class="ok"/>
+<text x="530" y="150" class="h">2. system.ai_gateway</text>
+<text x="530" y="190" class="t">Schema 已存在，表已发现：</text>
+<text x="530" y="225" class="code">usage</text>
+<text x="530" y="255" class="code">external_model_spend</text>
+<rect x="950" y="105" width="400" height="190" rx="16" class="box"/>
+<text x="980" y="150" class="h">3. Foundation Models</text>
+<text x="980" y="190" class="t">可调用 endpoint：</text>
+<text x="980" y="225" class="code">databricks-gpt-oss-120b</text>
+<text x="980" y="255" class="code">databricks-gpt-oss-20b</text>
+<rect x="50" y="340" width="620" height="260" rx="16" class="box"/>
+<text x="80" y="385" class="h">4. Request Tags = 业务归因入口</text>
+<text x="80" y="430" class="code">Databricks-Ai-Gateway-Request-Tags:</text>
+<text x="80" y="465" class="code">{"project":"unity-ai-gateway-demo",</text>
+<text x="80" y="500" class="code"> "team":"csu", "scenario":"hands-on"}</text>
+<text x="80" y="550" class="t">意义：把模型调用从“技术请求”变成“项目/团队成本”。</text>
+<rect x="730" y="340" width="620" height="260" rx="16" class="warn"/>
+<text x="760" y="385" class="h">5. 真实限制</text>
+<text x="760" y="430" class="t">短时间窗口内 usage/billing 新记录未立即出现。</text>
+<text x="760" y="470" class="t">这说明 system tables 不是实时告警链路，</text>
+<text x="760" y="510" class="t">做 chargeback 要设计数据延迟 SLA。</text>
+<text x="50" y="690" class="t">原始证据：evidence/api-probe.json, request-tags-invocation-response.json, ai-query-sql-response.json, usage-table-after-delay.json</text>
+</svg>
